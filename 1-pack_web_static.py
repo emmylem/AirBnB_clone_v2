@@ -7,8 +7,8 @@ from fabric.api import local
 
 def do_pack():
     """generates a tar gzipped archive of the directory web_static."""
-    dt = strftime('%Y%m%d%H%M%S') + '.tgz'
-    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(dt)
+    dt = datetime.utcnow()
+    file = "versions/web_static_" + dt.strftime('%Y%m%d%H%M%S') + '.tgz'
     if os.path.isdir("versions") is False:
         if local("mkdir -p versions").failed is True:
             return None
