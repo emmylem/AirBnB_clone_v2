@@ -9,10 +9,9 @@ sudo mkdir -p /data/web_static/shared/
 echo "<!Doctype html>
 <html>
   <head>
-  <title>Hello</title>
   </head>
   <body>
-    Hello World!
+    Holberton School
   </body>
 </html>" | sudo tee /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
