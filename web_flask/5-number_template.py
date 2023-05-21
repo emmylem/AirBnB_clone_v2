@@ -22,7 +22,7 @@ def HBNB():
 
 @app.route("/c/<text>", strict_slashes=False)
 def c_text(text):
-    """Prints 'C' followed by the value of 
+    """Prints 'C' followed by the value of
     <text> var.
     """
     text = text.replace("_", " ")
@@ -32,7 +32,7 @@ def c_text(text):
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_text(text="is cool"):
-    """Prints 'Python' followed by the value of 
+    """Prints 'Python' followed by the value of
     <text> var.
     """
     text = text.replace("_", " ")
