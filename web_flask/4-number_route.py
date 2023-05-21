@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """Starts a Flask web application.
 The application listens on 0.0.0.0, port 5000.
-Routes:
-    /python/(<text>): Displays 'Python' followed by the value of <text>.
 """
 from flask import Flask
+from flask import abort
 
 app = Flask(__name__)
 
@@ -22,8 +21,8 @@ def HBNB():
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def c(text):
-    """Displays 'C' followed by the value of
+def c_text(text):
+    """Displays 'C' followed by the value of 
     <text> var.
     """
     text = text.replace("_", " ")
@@ -33,13 +32,19 @@ def c(text):
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
 def python_text(text="is cool"):
-    """Displays 'Python' followed by the value of
+    """Prints 'Python' followed by the value of 
     <text> var.
     """
     text = text.replace("_", " ")
     return "Python {}".format(text)
 
 
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    """Prints 'n is a number' only if n is an integer."""
+    return "{} is a number".format(n)
+
+
 if __name__ == "__main__":
     app.debug = True
-    app.run(host="0.0.0.0", port="5000")
+    app.run(host="0.0.0.0", port=5000)
